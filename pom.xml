@@ -56,8 +56,8 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:paragspatil/spring-pet-clinic.git</developerConnection>
-        <tag>spring-pet-clinic-0.0.2</tag>
+        <url>https://github.com/paragspatil/spring-pet-clinic</url>
+        <connection>scm:git:https://github.com/paragspatil/spring-pet-clinic.git</connection>
     </scm>
 
 </project>
