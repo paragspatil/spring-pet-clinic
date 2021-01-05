@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class AbstractMapservice <T,ID>{
-    protected Map<ID,T> map = new HashMap<>();
+    protected Map<Long,T> map = new HashMap<>();
 
     Set<T> findAll() {
         return new HashSet<>(map.values());
@@ -17,7 +17,11 @@ public abstract class AbstractMapservice <T,ID>{
         return map.get(id);
     }
 
-    T save(ID id, T t){
+    T save( T t){
+        Long id = 1L;
+        if(map != null) {
+            id = new Long(map.size()) + 1;
+        }
         map.put(id,t);
         return t;
     }
