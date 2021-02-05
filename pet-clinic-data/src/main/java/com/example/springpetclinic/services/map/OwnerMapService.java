@@ -58,8 +58,9 @@ public class OwnerMapService extends AbstractMapservice<Owner,Long> implements O
                     }
                 });
             }
-
-            return super.save(object);
+            Owner savedOwner = super.save(object);
+            savedOwner.setId((long) map.size());
+            return savedOwner;
 
         } else {
             return null;
@@ -73,6 +74,11 @@ public class OwnerMapService extends AbstractMapservice<Owner,Long> implements O
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }
